@@ -17,7 +17,7 @@ public class torch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_torch);
 
-        Button onButton =(Button)findViewById(R.id.button_on);
+        Button onButton = findViewById(R.id.button_on);
         onButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -27,7 +27,7 @@ public class torch extends AppCompatActivity {
                 try {
 
                     CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-                    String cameraId = camManager.getCameraIdList()[0];
+                    String cameraId = camManager.getCameraIdList()[1];
                     camManager.setTorchMode(cameraId, true);
 
                 }
@@ -40,14 +40,14 @@ public class torch extends AppCompatActivity {
             }
         });
 
-        Button offButton =(Button)findViewById(R.id.button_off);
+        Button offButton = findViewById(R.id.button_off);
         offButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 try {
                     CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-                    String cameraId = camManager.getCameraIdList()[0];
+                    String cameraId = camManager.getCameraIdList()[1];
                     camManager.setTorchMode(cameraId, false);
 
                 }
