@@ -33,9 +33,9 @@ public class gyroscope extends AppCompatActivity {
                 pitch = sensorEvent.values[1];
                 yaw = sensorEvent.values[0];
 
-                TextView xValues = (TextView) findViewById(R.id.valueX);
-                TextView yValues = (TextView) findViewById(R.id.valueY);
-                TextView zValues = (TextView) findViewById(R.id.valueZ);
+                TextView xValues =  findViewById(R.id.valueX);
+                TextView yValues =  findViewById(R.id.valueY);
+                TextView zValues =  findViewById(R.id.valueZ);
 
                 xValues.setText("" + roll);
                 yValues.setText("" + pitch);

@@ -27,7 +27,7 @@ public class torch extends AppCompatActivity {
                 try {
 
                     CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-                    String cameraId = camManager.getCameraIdList()[1];
+                    String cameraId = camManager.getCameraIdList()[0];
                     camManager.setTorchMode(cameraId, true);
 
                 }
@@ -47,7 +47,7 @@ public class torch extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-                    String cameraId = camManager.getCameraIdList()[1];
+                    String cameraId = camManager.getCameraIdList()[0];
                     camManager.setTorchMode(cameraId, false);
 
                 }

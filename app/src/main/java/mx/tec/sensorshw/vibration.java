@@ -18,7 +18,7 @@ public class vibration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vibration);
 
-        Button vibButton =(Button)findViewById(R.id.button_vibrate);
+        Button vibButton =findViewById(R.id.button_vibrate);
 
         vibButton.setOnClickListener(new View.OnClickListener() {
 
@@ -31,7 +31,7 @@ public class vibration extends AppCompatActivity {
 
                 try {
                     Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-                    vibrator.vibrate(pattern, -1);
+                    vibrator.vibrate(10000);
 
 
                 }

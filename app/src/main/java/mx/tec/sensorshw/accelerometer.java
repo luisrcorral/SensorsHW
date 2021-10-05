@@ -21,7 +21,6 @@ public class accelerometer extends AppCompatActivity {
         setContentView(R.layout.activity_accelerometer);
 
         sensorManager= (SensorManager) getSystemService(SENSOR_SERVICE);
-
         final Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         SensorEventListener accelerometerListener = new SensorEventListener() {
