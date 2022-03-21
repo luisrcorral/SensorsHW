@@ -100,5 +100,15 @@
         app:layout_constraintBottom_toTopOf="@+id/button_vib"
         app:layout_constraintEnd_toStartOf="@+id/button_tor" />
 
+    <Button
+        android:id="@+id/buttonGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="2dp"
+        android:text="GPS"
+        app:layout_constraintEnd_toEndOf="@+id/button_gyr"
+        app:layout_constraintTop_toBottomOf="@+id/button_gyr" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
