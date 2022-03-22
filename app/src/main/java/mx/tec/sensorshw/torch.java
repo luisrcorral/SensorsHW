@@ -23,20 +23,15 @@ public class torch extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+           try {
+                CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                String cameraId = camManager.getCameraIdList()[0];
+                camManager.setTorchMode(cameraId, true);
+           }
 
-                try {
-
-                    CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-                    String cameraId = camManager.getCameraIdList()[0];
-                    camManager.setTorchMode(cameraId, true);
-
-                }
-                catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Cannot load camera module" , Toast.LENGTH_LONG).show();
-
-                }
-
-
+           catch (Exception e) {
+                 Toast.makeText(getApplicationContext(), "Cannot load camera module" , Toast.LENGTH_LONG).show();
+           }
             }
         });
 
@@ -45,16 +40,14 @@ public class torch extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                try {
-                    CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-                    String cameraId = camManager.getCameraIdList()[0];
-                    camManager.setTorchMode(cameraId, false);
-
-                }
-                catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Cannot load camera module" , Toast.LENGTH_LONG).show();
-
-                }
+            try {
+                  CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                  String cameraId = camManager.getCameraIdList()[0];
+                  camManager.setTorchMode(cameraId, false);
+            }
+            catch (Exception e) {
+                   Toast.makeText(getApplicationContext(), "Cannot load camera module" , Toast.LENGTH_LONG).show();
+            }
 
             }
         });

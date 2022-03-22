@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
@@ -21,26 +22,15 @@ public class vibration extends AppCompatActivity {
         Button vibButton =findViewById(R.id.button_vibrate);
 
         vibButton.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
-                //Set the pattern for vibration
-                long pattern[]={0,200,100,300,400}; // or you can just set a duration also in ms
-
-
                 try {
                     Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-                    vibrator.vibrate(10000);
-
-
+                    vibrator.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
                 }
                 catch (Exception e) {
-
                     Toast.makeText(getApplicationContext(), "This Hardware feature is not available", Toast.LENGTH_LONG).show();
                 }
-
-
             }
         });
     }

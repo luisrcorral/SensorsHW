@@ -11,41 +11,40 @@ import androidx.appcompat.app.AppCompatActivity;
 
 //Sensor Event Listener
 
-public class proximity extends AppCompatActivity {
+public class proximity extends AppCompatActivity  implements SensorEventListener {
 
+    public SensorManager sensorManager;
+    public Sensor proximitySensor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proximity);
 
-        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        final Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 
+        // Review if we have this hardware available in device
         if(proximitySensor == null) {
-            //no sensor available
+            // To-do code to manage when specified sensor is not available
         }
+        else {
+            // Register it, specifying the polling interval in microseconds
+            sensorManager.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
+        }
+    }
 
-        SensorEventListener proximitySensorListener = new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent sensorEvent) {
-                if(sensorEvent.values[0] < proximitySensor.getMaximumRange()) {
-                    // Detected something nearby
-                    getWindow().getDecorView().setBackgroundColor(Color.RED);
-                } else {
-                    // Nothing is nearby
-                    getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-                }
-            }
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        if(sensorEvent.values[0] < proximitySensor.getMaximumRange()) {
+            // Detected something nearby
+            getWindow().getDecorView().setBackgroundColor(Color.RED);
+        } else {
+            // Nothing is nearby
+            getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+        }
+    }
 
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int i) {
-            }
-        };
-
-        // Register it, specifying the polling interval in microseconds
-        sensorManager.registerListener(proximitySensorListener, proximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
-
-
-
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
     }
 }
