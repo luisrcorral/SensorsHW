@@ -15,7 +15,7 @@ public class call extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call);
-        Button phoneButton =(Button)findViewById(R.id.button_call);
+        Button phoneButton = findViewById(R.id.button_call);
         phoneButton.setOnClickListener(new View.OnClickListener() {
 
 

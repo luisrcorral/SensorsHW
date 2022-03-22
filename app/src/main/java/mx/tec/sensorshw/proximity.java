@@ -1,5 +1,6 @@
 package mx.tec.sensorshw;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -20,7 +21,7 @@ public class proximity extends AppCompatActivity  implements SensorEventListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proximity);
 
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 
         // Review if we have this hardware available in device
